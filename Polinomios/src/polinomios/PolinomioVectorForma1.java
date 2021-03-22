@@ -31,8 +31,7 @@ public class PolinomioVectorForma1 {
         this.arreglo[0] = -1;
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     public int getGrado() {
@@ -46,8 +45,7 @@ public class PolinomioVectorForma1 {
         return grado;
     }
 
-    
-    /** 
+    /**
      * @param grade
      * @return int
      */
@@ -61,8 +59,7 @@ public class PolinomioVectorForma1 {
 
     }
 
-    
-    /** 
+    /**
      * @param pos
      * @return int
      */
@@ -75,8 +72,7 @@ public class PolinomioVectorForma1 {
 
     }
 
-    
-    /** 
+    /**
      * @param coef
      * @param grade
      */
@@ -86,18 +82,72 @@ public class PolinomioVectorForma1 {
 
     }
 
-    
-    /** 
+    /**
      * @param polinomioB
      * @return PolinomioVectorForma1
      */
-    public PolinomioVectorForma1 sumar(PolinomioVectorForma1 polinomioB) {
+    public PolinomioVectorForma1 sumar(PolinomioVectorForma1 polinomioB) throws Exception {
+        // validación
+        PolinomioVectorForma1 PolinimioTemp;
+        if (polinomioB == null) {
+            throw new Exception("El polinomio b es null");
+        }
 
-        return (polinomioB);
+        // Bloque para validar si los arreglos son nulos o no
+        int[] arregloB = polinomioB.getArreglo();
+        int[] arregloA = this.getArreglo();
+        if (arregloB == null) {
+            if (arregloA == null) {
+                PolinimioTemp = new PolinomioVectorForma1();
+                return PolinimioTemp;
+            } else {
+                int[] arregloNuevo = new int[arregloA.length];
+                System.arraycopy(arreglo, 0, arregloNuevo, 0, arregloA.length);
+                PolinimioTemp = new PolinomioVectorForma1(arregloNuevo);
+                return PolinimioTemp;
+            }
+        } else {
+            if (arregloA == null) {
+                int[] arregloNuevo = new int[arregloB.length];
+                System.arraycopy(arregloB, 0, arregloNuevo, 0, arregloB.length);
+                PolinimioTemp = new PolinomioVectorForma1(arregloNuevo);
+                return PolinimioTemp;
+            }
+        }
+
+        // Bloque para validar si alguno de los arreglos es 0X^0
+        // Desde acá comienza la logica de la suma
+        // Este es el caso en que ambos arreglos no son nulos
+        int gradoA = this.getGrado();
+        int gradoB = polinomioB.getGrado();
+        int nGrado = (gradoA > gradoB) ? gradoA : gradoB;
+        PolinimioTemp = new PolinomioVectorForma1(nGrado);
+
+        int indiceExponente = 0; // comienzo en termino independiente
+        while (indiceExponente <= gradoA && indiceExponente <= gradoB) {
+            int nuevoCoeficiente = this.getCoef(indiceExponente) + polinomioB.getCoef(indiceExponente);
+            PolinimioTemp.setCoef(nuevoCoeficiente, indiceExponente);
+            indiceExponente++;
+        }
+
+        while (indiceExponente <= gradoA) {
+            int nuevoCoeficiente = this.getCoef(indiceExponente);
+            PolinimioTemp.setCoef(nuevoCoeficiente, indiceExponente);
+            indiceExponente++;
+        }
+
+        while (indiceExponente <= gradoB) {
+            int nuevoCoeficiente = polinomioB.getCoef(indiceExponente);
+            PolinimioTemp.setCoef(nuevoCoeficiente, indiceExponente);
+            indiceExponente++;
+        }
+
+        PolinimioTemp.normalizar();
+        return PolinimioTemp;
+        
     }
 
-    
-    /** 
+    /**
      * @return int[]
      */
     public int[] getArreglo() {
@@ -107,8 +157,7 @@ public class PolinomioVectorForma1 {
     private void normalizar() {
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     @Override

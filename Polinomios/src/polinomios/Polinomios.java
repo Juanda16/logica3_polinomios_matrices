@@ -14,8 +14,9 @@ public class Polinomios {
 
     /**
      * @param args the command line arguments
+     * @throws Exception
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         int[] arregloA = {6, 8, 1, 1, 4, 1, 1, -5};
         // 25x2 + 10x + 20
@@ -30,7 +31,8 @@ public class Polinomios {
         System.out.println(polinomioB);
         System.out.println(polinomioC);
 
-        PolinomioVectorForma1 polinomioCNuevo = polinomioA.sumar(polinomioB);
-        System.out.println(polinomioCNuevo);
+        polinomioC =polinomioA.sumar(polinomioB);
+        System.out.println(polinomioC);
+        System.out.println(polinomioA.getCoef(3));
     }
 }
