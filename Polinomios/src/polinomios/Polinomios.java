@@ -17,49 +17,25 @@ public class Polinomios {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        //while(true){
-        String PolinomioIn;
+        // int[] arregloA = { 6, 8, 1, 1, 4, 1, 1, -5 };
+        // int[] arregloB = { 2, 25, 10, 20 };
         Scanner teclado = new Scanner(System.in);
+        while (true) {
+            
 
-        int[] arregloA = { 6, 8, 1, 1, 4, 1, 1, -5 };
-        // 25x2 + 10x + 20
-        int[] arregloB = { 2, 25, 10, 20 };
-        
-        System.out.print("Introduzca su polinomio: ");
-        PolinomioIn = teclado.nextLine();
-        
-        try {
-            String parts[] = PolinomioIn.split("x\\^|\\+|\\ +|\\+ |x| ");
-            int j = 0;
-            int[] pol = new int[parts.length];
-            for (int i = 0; i < parts.length; i++) {
+            System.out.print("Ingrese los polinomios a operar , para terminar de ingresar escriba * ");
+            try {
+                System.out.print("Introduzca su polinomio: ");
+                String polinomioIn = teclado.nextLine();
+                StringToPolinomio newPolinomio = new StringToPolinomio(polinomioIn);
+                
+                System.out.println(newPolinomio.toString());
 
-                // System.out.println(parts[i]);
-                if (parts[i].equals("-")){
-                    parts[i]=parts[i]+parts[i+1];
-                    parts[i+1]="";
-                }
-
-                if (parts[i] != "" && !parts[i].equals("-") && parts[i] != " " ){
-                    
-                    pol[j] = Integer.parseInt(parts[i]);
-                    System.out.println(pol[j]);
-                    j++;
+            } catch (Exception error) {
+                System.out.println(error);
             }
-
-            }
-
-        } catch (Exception error) {
-            System.out.println(error);
+            //teclado.close();
         }
-        /*
-         * System.out.println(parts[0]); System.out.println(parts[1]);
-         * System.out.println(parts[2]); 52x^2 + 25x^1 + 65
-         */
-
-        System.out.println(PolinomioIn);
-        teclado.close();
-        
         
         /*
          * PolinomioVectorForma1 polinomioA = new PolinomioVectorForma1(arregloA);
@@ -72,6 +48,6 @@ public class Polinomios {
          * polinomioC =polinomioA.sumar(polino3xmioB); System.out.println(polinomioC);
          * System.out.println(polinomioA.getCoef(3));
          */
-    
-    
-}}
+
+    }
+}

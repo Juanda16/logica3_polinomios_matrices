@@ -1,3 +1,12 @@
+/*Examples:
+52x^2 + 25x^1 + 65  ok
+52x^2 + 25x^1 - 65  ok
+52x^2-25x^1-65      java.lang.NumberFormatException: For input string: "2-25"
+34x^4-345x^3 +12x^2+ 123x + 0  java.lang.NumberFormatException: For input string: "4-345"
+25x2 + 10x + 20 ok
+
+*/
+
 public class StringToPolinomio {
 
     int[] polinomio;
