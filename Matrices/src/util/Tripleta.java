@@ -1,9 +1,13 @@
 package util;
+
+//import java.io.*;
+import java.util.Scanner;
+
 public class Tripleta {
-    
-    int row=0, column=0 ;
+
+    int row = 0, column = 0;
     Object value;
-    
+
     /**
      * @param row
      * @param column
@@ -57,6 +61,26 @@ public class Tripleta {
         this.value = value;
     }
 
-    
+    public static Tripleta ingresarTripletaPorPantalla() {
+        Scanner sc;
+        sc = new Scanner(System.in);
+
+        System.out.println("Ingrese la tripleta separada por (coma ,) [ Ejemplo: 2,3,5] :");
+        String datos[] = sc.next().split(",");
+        Tripleta t = null;
+        int f = Integer.valueOf(datos[0]);
+        int c = Integer.valueOf(datos[1]);
+        int v = Integer.valueOf(datos[2]);
+        if (!(f == 0 || c == 0 || v == 0)) {
+            t = new Tripleta(f, c, v);
+        }
+        sc.close();
+        return t;
+    }
+
+    public Tripleta clonar() {
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
+    }
 
 }

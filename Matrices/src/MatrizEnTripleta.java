@@ -1,5 +1,5 @@
 
-import java.util.Scanner;
+// import java.util.Scanner;
 import util.Tripleta;
 
 public class MatrizEnTripleta {
