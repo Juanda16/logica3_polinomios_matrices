@@ -1,7 +1,7 @@
 
-import util.Matriz;
-import util.NodoDoble;
-import util.Tripleta;
+    import util.Matriz;
+    import util.NodoDoble;
+    import util.Tripleta;
 
 public class MatrizEnListaLigadaForma1 {
     NodoDoble nodoCabezaMatriz;

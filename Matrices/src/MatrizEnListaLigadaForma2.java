@@ -1,5 +1,5 @@
 import static util.Matriz.MATRIZTEXTO;
-import util.Matriz;
+// import util.Matriz;
 import util.NodoDoble;
 import util.Tripleta;
 
