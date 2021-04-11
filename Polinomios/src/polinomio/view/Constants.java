@@ -16,8 +16,6 @@ public class Constants {
          "[3] - Multiplicar polinomio.", 
          "[4] - Dividir polinomio.",
          "[5] - Evaluar polinomio.", 
-         "[6] - Evaluar polinomio.",
-         "[7] - Evaluar polinomio.",
          "[.] - Salir." };
 
     public static final String ERROR = 

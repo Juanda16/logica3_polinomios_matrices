@@ -10,11 +10,9 @@ public class Index {
         System.out.println(Constants.LOGO3);
         System.out.println(Constants.SUBTITLE);
         for(String author : Constants.AUTHORS )System.out.print(author+", ");
-        System.out.println("\n");
-        
+        System.out.println("\n");   
         
         char select;
-
         do {
             for (String option : Constants.MAIN_MENU_OPTIONS){
                 System.out.println(option);
@@ -22,8 +20,6 @@ public class Index {
             
             select = read.next().charAt(0);
             
-
         } while (select != '.');
     }
-    
 }
