@@ -7,7 +7,7 @@ public class Index {
     static Scanner read = new Scanner (System.in);
 
     public static void mainScreen() {
-        System.out.println(Constants.LOGO2);
+        System.out.println(Constants.LOGO3);
         System.out.println(Constants.SUBTITLE);
         for(String author : Constants.AUTHORS )System.out.print(author+", ");
         System.out.println("\n");
