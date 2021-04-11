@@ -19,7 +19,7 @@ public class ShowPolinomioView {
         do {
             System.out.print("choice: ");
             select = read.next().charAt(0);
-            controller.ShowPolinomioController.index(select);
+            controller.ShowPolinomioController.options(select);
             
 
         } while (select != '.');

@@ -8,6 +8,5 @@ public class NewPolinomioController {
         NewPolinomioView.index();
 
     }
-    //TODO
-    
+        
 }

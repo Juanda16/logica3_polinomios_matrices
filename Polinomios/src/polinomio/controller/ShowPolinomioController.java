@@ -19,12 +19,7 @@ public class ShowPolinomioController {
             break;
         default:
             int id = Character.getNumericValue(select);
-            /* try {
-                Polinomio polinomio = ControllerPolinomio.show(id);
-                System.out.print("\n" + "ID: " + id + " >>> " + polinomio.mostrar() + "\n");
-            } catch (IndexOutOfBoundsException e) {
-                System.out.print("\n" + "[!] Este polinomio no existe!" + "\n");
-            } */
+            // TODO optener polinomio específico 
             break;
         }
     }

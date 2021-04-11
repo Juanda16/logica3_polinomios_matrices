@@ -9,15 +9,13 @@ public class MainController {
         switch (select) {
         case '1':NewPolinomioController.index();                    
             break;
-        case '2'://TODO;
+        case '2':ShowPolinomioController.index();
             break;
-        case '3'://TODO;
+        case '3':MultiplyPolinomioController.index();
             break;
-        case '4'://TODO;
+        case '4':DividePolinomioController.index();
             break;
-        case '5'://TODO;
-            break;
-        case '6'://TODO;
+        case '5':EvalPoliniomioController.index();
             break;
         case '.':
             break;
