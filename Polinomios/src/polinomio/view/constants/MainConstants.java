@@ -1,7 +1,7 @@
-package view;
+package view.constants;
 
 
-public class Constants {
+public class MainConstants {
     public static final String AUTHORS[] = {
          "Laura Tobon Ospina", 
          "Erika Valentina Giralo",

@@ -1,6 +1,7 @@
 package view;
 import java.util.Scanner;
-//import view.constants;
+import controller.MainController;
+import view.constants.MainConstants;
 
 
 public class Index {
@@ -19,7 +20,8 @@ public class Index {
                 }
             
             select = read.next().charAt(0);
-            
+            MainController.index(select);
+                       
         } while (select != '.');
     }
 }

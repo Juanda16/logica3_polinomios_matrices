@@ -1,5 +1,8 @@
 package view;
 
 public class ShowPolinomioView {
-    //TODO
+    public static void index(){
+        //TODO print the list of polys
+        
+    }
 }

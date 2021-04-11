@@ -1,8 +1,9 @@
 package view;
 
-public class MultiplyPolinomioView {
+public class DividePoliniomioView{
     public static void index(){
         //TODO
         
     }
-    }
+}
+    
