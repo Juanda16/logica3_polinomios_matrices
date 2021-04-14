@@ -19,7 +19,7 @@ public class ShowPolinomioController {
             break;
         default:
             int id = Character.getNumericValue(select);
-            // TODO optener polinomio específico 
+            // TODO obtener polinomio específico 
             break;
         }
     }

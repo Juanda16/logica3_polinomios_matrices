@@ -4,18 +4,7 @@
  * and open the template in the editor.
  */
 
-import java.util.Scanner;
 
-/**
- *
- * @author JD
- */
-public class Polinomios {
-
-    /**
-     * @param args the command line arguments
-     * @throws Exception
-     */
 //     public static void main(String[] args) throws Exception {
 //         // int[] arregloA = { 6, 8, 1, 1, 4, 1, 1, -5 };
 //         // int[] arregloB = { 2, 25, 10, 20 };
@@ -50,4 +39,4 @@ public class Polinomios {
 //          */
 
 //     }
- }
+// }
