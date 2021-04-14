@@ -50,6 +50,7 @@ public class Polinomio {
         return coeficiente;
     }
 
+    //retorna el número de terminos del polinomio
     public int getSize(){
 
         Nodo nodoRecorrido = this.getCabeza().getLiga();
@@ -64,7 +65,7 @@ public class Polinomio {
         return size;
     }
 
-    
+
     private boolean finRecorrido(Nodo liga) {
         return liga == null;
     }
