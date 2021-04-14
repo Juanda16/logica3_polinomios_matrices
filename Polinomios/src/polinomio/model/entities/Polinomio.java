@@ -50,6 +50,21 @@ public class Polinomio {
         return coeficiente;
     }
 
+    public int getSize(){
+
+        Nodo nodoRecorrido = this.getCabeza().getLiga();
+        int size=0; 
+          
+         // Recorrido de los terminos en alguna de las dos listas
+         while (!finRecorrido(nodoRecorrido)){
+            nodoRecorrido = nodoRecorrido.getLiga();
+            size++;
+        } // recorro la lista polinomio de a
+
+        return size;
+    }
+
+    
     private boolean finRecorrido(Nodo liga) {
         return liga == null;
     }
