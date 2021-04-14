@@ -1,22 +1,19 @@
-package model;
+package model.entities;
 
-import model.entities.Termino;
 // vamos a trabajar lista ligada con cabeza
 
-import model.entities.Nodo;
-
-public class PolinomioListaLigada {
+public class Polinomio {
 
     private Nodo cabeza;
 
     /**
      * @param cabeza
      */
-    public PolinomioListaLigada(Nodo cabeza) {
+    public Polinomio(Nodo cabeza) {
         this.cabeza = cabeza;
     }
 
-    public PolinomioListaLigada() {
+    public Polinomio() {
 
         cabeza = new Nodo(null);
         cabeza.setLiga(null);
