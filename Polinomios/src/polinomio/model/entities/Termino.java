@@ -8,7 +8,7 @@ public class Termino {
      * @param exp
      * @param coef
      */
-    public Termino(int exp, int coef) {
+    public Termino(int coef,int exp) {
         this.exp = exp;
         this.coef = coef;
     }

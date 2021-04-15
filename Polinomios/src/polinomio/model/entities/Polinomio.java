@@ -70,13 +70,27 @@ public class Polinomio {
         return liga == null;
     }
     
+    public Nodo insertTermn(Termino termn, Nodo last){
+        Nodo newNodo = new Nodo(termn);
+        last.setLiga(newNodo);
+        return newNodo;
+        
+    }
+
+    public void simplify (){
+        //TODO. simplificar el polinomio
+    }
+
+    public void sort(){
+            //TODO. organizar el polinomio en porma decendente ej: x^4 + x^3 + x^2 + x^1 + x^0
+    }
     @Override
     public String toString() {
         StringBuilder polinomio = new StringBuilder();
         Nodo liga = cabeza.getLiga();
         while (!finRecorrido(liga)) {
             Termino termino = liga.getTermino();
-            double coef = termino.getCoef();
+            int coef = termino.getCoef();
             int exp = termino.getExp();
             // Para adicionar el simbolo del coeficiente para numeros positivos, excluyendo el simbolo + del primer termino si es positivo.
             if (coef >= 0) {
