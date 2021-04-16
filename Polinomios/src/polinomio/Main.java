@@ -13,25 +13,32 @@ public class Main {
         //Index.mainScreen();
 
         // Multiply test
-        // Multiplication multiplication=new Multiplication();
-        // Polinomio pA = new Polinomio();
-        // Termino t = new Termino(3, 2);
-        // Nodo n = new Nodo(t);
-        // Nodo cA = pA.getCabeza();
-        // cA.setLiga(n);
-        // cA = n;
+        Multiplication multiplication=new Multiplication();
+        Polinomio pA = new Polinomio();
 
-        // t = new Termino(6, 1);
-        // n = new Nodo(t);
-        // cA.setLiga(n);
+        Termino t = new Termino(3, 3);
+        Nodo n = new Nodo(t);
+        Nodo cA = pA.getCabeza();
+        cA.setLiga(n);
+        cA = n;
 
-        // Polinomio pB = pA;
+        t = new Termino(6, 2);
+        n = new Nodo(t);
+        cA.setLiga(n);
+        cA=n;
 
-        // System.out.println(pA);
-        // System.out.println(pB);
 
-        // Polinomio pC = multiplication.multiply(pA, pB);
-        // System.out.println(pC);
+        t = new Termino(2, 1);
+        n = new Nodo(t);
+        cA.setLiga(n);
+
+        Polinomio pB = pA;
+
+        System.out.println(pA);
+        System.out.println(pB);
+
+        Polinomio pC = multiplication.multiply2Poly(pA, pB);
+        System.out.println(pC);
 
         
         
