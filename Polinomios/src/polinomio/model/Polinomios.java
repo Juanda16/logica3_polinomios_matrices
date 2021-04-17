@@ -1,12 +1,11 @@
 package model;
 
 import java.util.ArrayList;
-
 import model.entities.Polinomio;
 
-class Polinomios {
+public class Polinomios {
 
-    private static ArrayList<Polinomio> polinomios = new ArrayList<Polinomio>();
+    public static ArrayList<Polinomio> polinomios = new ArrayList<Polinomio>();
 
     ArrayList<Polinomio> getAll() {
         return polinomios;
