@@ -106,16 +106,13 @@ public class Polinomio {
 
             Nodo recordTemp = nodoRecord;
             for (int j = i + 1; j < size; j++) {
-
                 Termino nextTermn = recordTemp.getLiga().getTermino();
                 int nextExp = nextTermn.getExp();
                 if (exp == nextExp && coeficiente != 0) {
                     coeficiente += nextTermn.getCoef();
                     recordTemp.getLiga().setTermino(new Termino(0, 0));
                 }
-
                 recordTemp = recordTemp.getLiga();
-
             }
 
             if (coeficiente != 0) { // controlar que se guarda
@@ -126,9 +123,9 @@ public class Polinomio {
             nodoRecord = nodoRecord.getLiga();
         }
         this.cabeza = temp.cabeza;
-
     }
 
+    
     public void sort() {
         // TODO. organizar el polinomio en porma decendente ej: x^4 + x^3 + x^2 + x^1 +
 

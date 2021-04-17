@@ -1,5 +1,4 @@
 package model.operations;
-
 import model.entities.*;
 
 public class Multiplication {
@@ -23,15 +22,15 @@ public class Multiplication {
                          // Variables de exponente y coeficiente de terminos
 
                          int expPol2TermnJ = nodoRecord2.getTermino().getExp();
-                         int coefPol2TermnJ = nodoRecord2.getTermino().getCoef(); // error noderecord2=null
+                         int coefPol2TermnJ = nodoRecord2.getTermino().getCoef();
 
                          int newExp = expPol1TermnJ + expPol2TermnJ;
                          int newCoef = coefPol1TermnJ * coefPol2TermnJ;
                          Termino newTermino = new Termino(newCoef, newExp);
 
-                         newNodo = result.insertTermn(newTermino, last); //
+                         newNodo = result.insertTermn(newTermino, last);
                          last = newNodo;
-                         nodoRecord2 = nodoRecord2.getLiga(); //
+                         nodoRecord2 = nodoRecord2.getLiga();
 
                     }
                     nodoRecord1 = nodoRecord1.getLiga();
