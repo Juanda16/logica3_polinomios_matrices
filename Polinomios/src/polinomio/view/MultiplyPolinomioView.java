@@ -27,10 +27,11 @@ public class MultiplyPolinomioView {
                     break;
                 else {
                     selectedPols[i] = select;
+
                 }
             }
-
             MultiplyPolinomioController.multiply(selectedPols);
+
         } else
             System.out.println(MultiplicationConstants.ERROR_EMPTY);
     }
