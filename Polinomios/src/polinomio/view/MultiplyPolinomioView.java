@@ -23,20 +23,29 @@ public class MultiplyPolinomioView {
                 if (select < 0 || select > size) {
                     System.out.println(MultiplicationConstants.ERROR);
 
-                } else {
-                    selectedPols[i + 1] = select;
+                } else if (select == 0)
+                    break;
+                else {
+                    selectedPols[i] = select;
                 }
             }
 
             MultiplyPolinomioController.multiply(selectedPols);
-        }else System.out.println(MultiplicationConstants.ERROR_EMPTY);
+        } else
+            System.out.println(MultiplicationConstants.ERROR_EMPTY);
     }
-    
+
     public static void result(String result) {
-        
+
         System.out.println(MultiplicationConstants.RESULT);
-        
         System.out.println(result);
-        
+
+        char select;
+        do {
+            System.out.print(MultiplicationConstants.OUT);
+            select = read.next().charAt(0);
+            read.nextLine();
+
+        } while (select != '.');
     }
 }

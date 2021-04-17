@@ -10,5 +10,6 @@ public class MultiplicationConstants {
     public static final String ERROR = "Debe ingresar un numero valido";
     public static final String ERROR_EMPTY = "Aun no hay ningún polinomio guardado, debe ingresar uno primero";
     public static final String RESULT = "El resultado de la multiplicación es:";
+    public static final String OUT = "Presione \".\" para salir ";
 
 }
