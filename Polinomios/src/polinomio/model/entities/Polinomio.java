@@ -92,7 +92,7 @@ public class Polinomio {
 
     }
 
-    public void simplify() { // TODO. revisar, brinca de a 2 términos
+    public void simplify() {
         Polinomio temp = new Polinomio();
         int size = this.getSize();
         Nodo nodoRecord = this.getCabeza().getLiga();
@@ -125,10 +125,37 @@ public class Polinomio {
         this.cabeza = temp.cabeza;
     }
 
-    
     public void sort() {
-        // TODO. organizar el polinomio en porma decendente ej: x^4 + x^3 + x^2 + x^1 +
 
+        int size = this.getSize();
+        for (int j = 0; j < size; j++) {
+            for (int i = 0; i < size - j - 1; i++) {
+
+                if (getTermnN(i).getExp() < getTermnN(i + 1).getExp()) {
+                    int exponente = getTermnN(i + 1).getExp();
+                    int coeficiente = getTermnN(i + 1).getCoef();
+
+                    getTermnN(i + 1).setExp(getTermnN(i).getExp());
+                    getTermnN(i + 1).setCoef(getTermnN(i).getCoef());
+                    getTermnN(i).setExp(exponente);
+                    getTermnN(i).setCoef(coeficiente);
+                }
+            }
+        }
+    }
+
+    Termino getTermnN(int index) {
+        if (index <= this.getSize()) {
+            Nodo nodoRecord = this.getCabeza().getLiga();
+
+            for (int i = 0; i < index; i++) {
+                nodoRecord = nodoRecord.getLiga();
+            }
+            Termino termino = nodoRecord.getTermino();
+            return termino;
+
+        } else
+            return null;
     }
 
     @Override

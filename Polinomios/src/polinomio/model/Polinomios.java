@@ -8,13 +8,13 @@ class Polinomios {
 
     private static ArrayList<Polinomio> polinomios = new ArrayList<Polinomio>();
 
-    void getAll() {
-        // TODO devolver todos os polinomios
+    ArrayList<Polinomio> getAll() {
+        return polinomios;
     }
 
-    Polinomio getById(int id) {
-        // TODO. devolver 1 polinomio
-        return null;
+    Polinomio getById(int index) {
+        
+        return polinomios.get(index);
     }
 
     void add(Polinomio polinomio) {

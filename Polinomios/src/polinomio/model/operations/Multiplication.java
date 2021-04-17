@@ -38,7 +38,7 @@ public class Multiplication {
                }
 
                result.simplify();
-               // result.sort();
+               result.sort();
                return result;
           } catch (Exception exception) {
                System.out.println("Error: " + exception);
