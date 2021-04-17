@@ -1,6 +1,9 @@
 import model.entities.*;
-import model.operations.Multiplication;
-import view.Index;
+import java.util.Scanner;
+//import model.operations.Multiplication;
+import model.util.StringToPolinomio;
+//import view.Index;
+
 
 public class Main {
     
@@ -8,8 +11,30 @@ public class Main {
      * Inicia la vista (formulario) principal
      * para la interacción con el usuario.
      * @param args the command line arguments
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
+        
+        Scanner teclado = new Scanner(System.in);
+        while (true) {
+            
+
+            System.out.println("Ingrese los polinomios a operar , para terminar de ingresar escriba *"  );
+            try {
+                System.out.println( "Introduzca su polinomio:  ");
+                String polinomioIn = teclado.nextLine();
+                Polinomio newPolinomio = StringToPolinomio.stringToPolinomio(polinomioIn);
+                
+                System.out.println(newPolinomio.toString());
+
+                
+
+            } catch (Exception error) {
+                System.out.println(error);
+            }
+            //teclado.close();
+        
+        
         //Index.mainScreen();
 
         // Multiply test
@@ -42,7 +67,8 @@ public class Main {
 
         
         
-                
+        }           
     }
-    
 }
+    
+
