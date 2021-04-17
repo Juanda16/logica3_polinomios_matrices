@@ -103,22 +103,22 @@ public class Polinomio {
             Termino termino = nodoRecord.getTermino();
             int coeficiente = termino.getCoef();
             int exp = termino.getExp();
-            
-            Nodo recordTemp =nodoRecord;
+
+            Nodo recordTemp = nodoRecord;
             for (int j = i + 1; j < size; j++) {
-               
+
                 Termino nextTermn = recordTemp.getLiga().getTermino();
-                int nextExp= nextTermn.getExp();
-                if (exp == nextExp  && coeficiente != 0) {
+                int nextExp = nextTermn.getExp();
+                if (exp == nextExp && coeficiente != 0) {
                     coeficiente += nextTermn.getCoef();
-                    // Termino newTermino = new Termino(coeficiente, exp);
-                    // newNodo = temp.insertTermn(newTermino, last); //
-                    // last = newNodo;
+                    recordTemp.getLiga().setTermino(new Termino(0, 0));
                 }
+
                 recordTemp = recordTemp.getLiga();
+
             }
-            
-            if (coeficiente != 0) {
+
+            if (coeficiente != 0) { // controlar que se guarda
                 Termino newTermino = new Termino(coeficiente, exp);
                 newNodo = temp.insertTermn(newTermino, last); //
                 last = newNodo;
@@ -131,7 +131,7 @@ public class Polinomio {
 
     public void sort() {
         // TODO. organizar el polinomio en porma decendente ej: x^4 + x^3 + x^2 + x^1 +
-        
+
     }
 
     @Override
