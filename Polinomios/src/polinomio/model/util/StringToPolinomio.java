@@ -1,4 +1,7 @@
 package model.util;
+
+import model.entities.Polinomio;
+
 /**Examples:
 52x^2 + 25x^1 + 65  ok
 52x^2 + 25x^1 - 65  ok
@@ -7,11 +10,11 @@ package model.util;
 25x2 + 10x + 20 ok
 */
 
-public class StringToPolinomio {
+public class  StringToPolinomio {
 
     int[] polinomio;
 
-    public StringToPolinomio(String rawPolinomio) {
+    public static Polinomio StringToPolinomio(String rawPolinomio) {
 
         try {
             String parts[] = rawPolinomio.split("x\\^|\\+|\\ +|\\+ |x| ");
