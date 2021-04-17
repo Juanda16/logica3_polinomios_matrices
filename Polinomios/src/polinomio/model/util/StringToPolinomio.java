@@ -1,4 +1,4 @@
-
+package model.util;
 /**Examples:
 52x^2 + 25x^1 + 65  ok
 52x^2 + 25x^1 - 65  ok
