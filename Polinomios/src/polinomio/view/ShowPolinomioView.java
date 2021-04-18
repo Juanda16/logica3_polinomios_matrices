@@ -8,11 +8,11 @@ public class ShowPolinomioView {
      * Formulario para mostrar polinomios
      */
     public static void index() {
-        
+
         System.out.print(ShowPolinomioConstants.TITLE);
-        for (String option : ShowPolinomioConstants.OPTIONS){
+        for (String option : ShowPolinomioConstants.OPTIONS) {
             System.out.println(option);
-            }
+        }
 
         char select;
 
@@ -20,16 +20,23 @@ public class ShowPolinomioView {
             System.out.print("choice: ");
             select = read.next().charAt(0);
             controller.ShowPolinomioController.options(select);
-            
 
         } while (select != '.');
     }
 
-    /**
-     * Opciones disponibles para que 
-     * el usuario eliga el 
-     * polinomio deseado.
-     * @param select opcion a ejecutar
-     */
-    
+    public static void printPolinomios(String polinomios) {
+        
+        System.out.println(ShowPolinomioConstants.RESULT);
+        System.out.println(polinomios);
+
+        char select;
+        do {
+            System.out.print(ShowPolinomioConstants.OUT);
+            select = read.next().charAt(0);
+            read.nextLine();
+
+        } while (select != '.');
+    }
+  
+      
 }
