@@ -26,6 +26,11 @@ public class Polinomio {
         return cabeza;
     }
 
+    
+    /** 
+     * @return int
+     * @throws Exception
+     */
     public int getGrado() throws Exception {
 
         Nodo primero = cabeza.getLiga();
@@ -35,6 +40,11 @@ public class Polinomio {
         return primero.getTermino().getExp();
     }
 
+    
+    /** 
+     * @param exponente
+     * @return double
+     */
     public double getCoeficiente(int exponente) {
         // Variables para los recorridos en polinomios a,b y c
 
@@ -50,6 +60,10 @@ public class Polinomio {
         return coeficiente;
     }
 
+    
+    /** 
+     * @return int
+     */
     // retorna el número de terminos del polinomio
     public int getSize() {
 
@@ -65,10 +79,21 @@ public class Polinomio {
         return size;
     }
 
+    
+    /** 
+     * @param liga
+     * @return boolean
+     */
     private boolean finRecorrido(Nodo liga) {
         return liga == null;
     }
 
+    
+    /** 
+     * @param termn
+     * @param last
+     * @return Nodo
+     */
     public Nodo insertTermn(Termino termn, Nodo last) {
         Nodo newNodo = new Nodo(termn);
         last.setLiga(newNodo);
@@ -76,13 +101,20 @@ public class Polinomio {
 
     }
 
-    public void insertTermnByInt(int coef, int exp) {
+    
+    /** 
+     * @param coef
+     * @param exp
+     */
+    public void TermnToPol(Double coef, int exp) {
         // TODO. falta terminarla y definir si si es necesario este método
-        Termino termn = new Termino(coef, exp);
-        Nodo nodo = new Nodo(termn);
+        Termino termino1 = new Termino(coef, exp);
+        Nodo nodo = new Nodo(termino1);
         Nodo cA = this.getCabeza();
         cA.setLiga(nodo);
         cA = nodo;
+
+
         // hacer esto para insertar x cantidad de términos
         // for(){
         // termn = new Termino(6, 2);
@@ -101,7 +133,7 @@ public class Polinomio {
 
         for (int i = 0; i < size; i++) {
             Termino termino = nodoRecord.getTermino();
-            int coeficiente = termino.getCoef();
+            double coeficiente = termino.getCoef();
             int exp = termino.getExp();
 
             Nodo recordTemp = nodoRecord;
@@ -133,7 +165,7 @@ public class Polinomio {
 
                 if (getTermnN(i).getExp() < getTermnN(i + 1).getExp()) {
                     int exponente = getTermnN(i + 1).getExp();
-                    int coeficiente = getTermnN(i + 1).getCoef();
+                    double coeficiente = getTermnN(i + 1).getCoef();
 
                     getTermnN(i + 1).setExp(getTermnN(i).getExp());
                     getTermnN(i + 1).setCoef(getTermnN(i).getCoef());
@@ -144,7 +176,12 @@ public class Polinomio {
         }
     }
 
-    Termino getTermnN(int index) {
+    
+    /** 
+     * @param index
+     * @return Termino
+     */
+    public Termino getTermnN(int index) {
         if (index <= this.getSize()) {
             Nodo nodoRecord = this.getCabeza().getLiga();
 
@@ -158,13 +195,17 @@ public class Polinomio {
             return null;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         StringBuilder polinomio = new StringBuilder();
         Nodo liga = cabeza.getLiga();
         while (!finRecorrido(liga)) {
             Termino termino = liga.getTermino();
-            int coef = termino.getCoef();
+            double coef = termino.getCoef();
             int exp = termino.getExp();
             // Para adicionar el simbolo del coeficiente para numeros positivos, excluyendo
             // el simbolo + del primer termino si es positivo.
@@ -178,3 +219,4 @@ public class Polinomio {
     }
 
 }
+

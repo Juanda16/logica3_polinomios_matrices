@@ -5,6 +5,11 @@ import java.io.*;
 // import java.io.BufferedReader;
 
 public class App {
+    
+    /** 
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         /*
          * MatrizEnTripleta matriz = new MatrizEnTripleta(10, 10); matriz.setElement(0,

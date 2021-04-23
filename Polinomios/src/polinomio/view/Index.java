@@ -10,7 +10,7 @@ public class Index {
     public static void mainScreen() {
         System.out.println(MainConstants.LOGO3);
         System.out.println(MainConstants.SUBTITLE);
-        for(String author : MainConstants.AUTHORS )System.out.print(author+", ");
+        for(String author : MainConstants.AUTHORS )System.out.print(author);
         System.out.println("\n");   
         
         char select;

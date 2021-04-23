@@ -12,33 +12,37 @@ public class NewPolinomioController {
 
     }
 
+    
+    /** 
+     * @param rawPolinomio
+     */
     public static void store(String rawPolinomio) {
 
-        // Polinomios.polinomios.add(StringToPolinomio.StringToPolinomio(rawPolinomio));
+        Polinomios.polinomios.add(StringToPolinomio.stringToPolinomio(rawPolinomio));
 
 
         //Insert 10 pol test 
-        for (int i = 0; i < 10; i++) {
-            Polinomio pA = new Polinomio();
+        // for (int i = 0; i < 10; i++) {
+        //     Polinomio pA = new Polinomio();
 
-            Termino t = new Termino(2, 1);
-            Nodo n = new Nodo(t);
-            Nodo cA = pA.getCabeza();
-            cA.setLiga(n);
-            cA = n;
+        //     Termino t = new Termino(2, 1);
+        //     Nodo n = new Nodo(t);
+        //     Nodo cA = pA.getCabeza();
+        //     cA.setLiga(n);
+        //     cA = n;
 
-            t = new Termino(3, 3);
-            n = new Nodo(t);
-            cA.setLiga(n);
-            cA = n;
+        //     t = new Termino(3, 3);
+        //     n = new Nodo(t);
+        //     cA.setLiga(n);
+        //     cA = n;
 
-            t = new Termino(6, 2);
-            n = new Nodo(t);
-            cA.setLiga(n);
+        //     t = new Termino(6, 2);
+        //     n = new Nodo(t);
+        //     cA.setLiga(n);
 
-            Polinomios.polinomios.add(pA);
+        //     Polinomios.polinomios.add(pA);
 
-        }
+        // }
 
     }
 

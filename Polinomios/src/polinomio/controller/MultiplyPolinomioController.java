@@ -14,14 +14,18 @@ public class MultiplyPolinomioController {
              
     }
 
+    
+    /** 
+     * @param selectedPols
+     */
     public static void multiply(int[] selectedPols) {
 
         if (selectedPols[0] != 0 && selectedPols[1] != 0) {
-            Multiplication multiplication = new Multiplication();
+            //Multiplication multiplication = new Multiplication();
             String result;
-            Polinomio pol1 = Polinomios.polinomios.get(selectedPols[0]);
-            Polinomio pol2 = Polinomios.polinomios.get(selectedPols[1]);
-            result = multiplication.multiply2Poly(pol1, pol2).toString();
+            Polinomio pol1 = Polinomios.polinomios.get(selectedPols[0]-1);
+            Polinomio pol2 = Polinomios.polinomios.get(selectedPols[1]-1);
+            result = Multiplication.multiply2Poly(pol1, pol2).toString();
             MultiplyPolinomioView.result(result);
         }
 

@@ -163,10 +163,18 @@ public class MatrizEnListaLigadaForma2 {
         }
     }
 
+    
+    /** 
+     * @return NodoDoble
+     */
     private NodoDoble getCabeza() {
         return nodoConfiguracion.getLigaC();
     }
 
+    
+    /** 
+     * @return MatrizEnListaLigadaForma2
+     */
     public static MatrizEnListaLigadaForma2 entregarMatrizRelacion() {
 
         String[] filas = MATRIZTEXTO.split("\n");
@@ -199,6 +207,10 @@ public class MatrizEnListaLigadaForma2 {
         return matrizEnListaLigadaForma2;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         StringBuilder cadena = new StringBuilder();

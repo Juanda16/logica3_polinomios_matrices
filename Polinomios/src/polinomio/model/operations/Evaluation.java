@@ -6,6 +6,12 @@ import model.util.StringToPolinomio;
 
 public class Evaluation {
     
+     
+     /** 
+      * @param polinomio
+      * @param x
+      * @return double
+      */
      public static double evalPol(Polinomio polinomio, int x) {
           double valor = 0;
           int Size = polinomio.getSize();

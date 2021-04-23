@@ -7,15 +7,28 @@ public class Polinomios {
 
     public static ArrayList<Polinomio> polinomios = new ArrayList<Polinomio>();
 
+    
+    /** 
+     * @return ArrayList<Polinomio>
+     */
     ArrayList<Polinomio> getAll() {
         return polinomios;
     }
 
+    
+    /** 
+     * @param index
+     * @return Polinomio
+     */
     Polinomio getById(int index) {
         
         return polinomios.get(index);
     }
 
+    
+    /** 
+     * @param polinomio
+     */
     void add(Polinomio polinomio) {
         try {
             polinomios.add(polinomio);
@@ -24,6 +37,10 @@ public class Polinomios {
         }
     }
 
+    
+    /** 
+     * @param id
+     */
     void deleteById(int id) {
         try {
             polinomios.remove(id);
@@ -32,9 +49,12 @@ public class Polinomios {
         }
     }
 
+    
+    /** 
+     * @return int
+     */
     int getSize(){
         return polinomios.size();
     }
-
     
 }

@@ -5,6 +5,10 @@ package controller;
 public class MainController {
 
 
+    
+    /** 
+     * @param select
+     */
     public static void index(char select) {
         switch (select) {
         case '1':NewPolinomioController.index();                    

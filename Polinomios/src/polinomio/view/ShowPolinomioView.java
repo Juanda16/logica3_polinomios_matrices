@@ -10,13 +10,12 @@ public class ShowPolinomioView {
     public static void index() {
 
         System.out.print(ShowPolinomioConstants.TITLE);
-        for (String option : ShowPolinomioConstants.OPTIONS) {
-            System.out.println(option);
-        }
-
-        char select;
+            char select;
 
         do {
+            for (String option : ShowPolinomioConstants.OPTIONS) {
+                System.out.println(option);
+            }
             System.out.print("choice: ");
             select = read.next().charAt(0);
             controller.ShowPolinomioController.options(select);
@@ -24,10 +23,24 @@ public class ShowPolinomioView {
         } while (select != '.');
     }
 
+    
+    /** 
+     * @param polinomios
+     */
     public static void printPolinomios(String polinomios) {
         
         System.out.println(ShowPolinomioConstants.RESULT);
-        System.out.println(polinomios);
+        polinomios =polinomios.replaceAll("\\[", "").replaceAll("\\]","");
+        String [] polinomioList = polinomios.split(",");
+
+        for (String currentPolinomio : polinomioList) {
+            System.out.println(currentPolinomio);
+
+
+
+        }
+        
+    
 
         char select;
         do {

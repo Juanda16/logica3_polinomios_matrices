@@ -61,6 +61,10 @@ public class Tripleta {
         this.value = value;
     }
 
+    
+    /** 
+     * @return Tripleta
+     */
     public static Tripleta ingresarTripletaPorPantalla() {
         Scanner sc;
         sc = new Scanner(System.in);
@@ -78,6 +82,10 @@ public class Tripleta {
         return t;
     }
 
+    
+    /** 
+     * @return Tripleta
+     */
     public Tripleta clonar() {
         throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
                                                                        // Tools | Templates.

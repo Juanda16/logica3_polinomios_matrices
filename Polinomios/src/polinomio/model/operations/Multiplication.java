@@ -3,7 +3,13 @@ import model.entities.*;
 
 public class Multiplication {
 
-     public Polinomio multiply2Poly(Polinomio pol1, Polinomio pol2) {
+     
+     /** 
+      * @param pol1
+      * @param pol2
+      * @return Polinomio
+      */
+     public static Polinomio multiply2Poly(Polinomio pol1, Polinomio pol2) {
 
           Polinomio result = new Polinomio();
 
@@ -17,15 +23,15 @@ public class Multiplication {
 
                for (int j = 0; j < sizePol1; j++) {
                     int expPol1TermnJ = nodoRecord1.getTermino().getExp();
-                    int coefPol1TermnJ = nodoRecord1.getTermino().getCoef();
+                    double coefPol1TermnJ = nodoRecord1.getTermino().getCoef();
                     for (int i = 0; i < sizePol2; i++) {
                          // Variables de exponente y coeficiente de terminos
 
                          int expPol2TermnJ = nodoRecord2.getTermino().getExp();
-                         int coefPol2TermnJ = nodoRecord2.getTermino().getCoef();
+                         double coefPol2TermnJ = nodoRecord2.getTermino().getCoef();
 
                          int newExp = expPol1TermnJ + expPol2TermnJ;
-                         int newCoef = coefPol1TermnJ * coefPol2TermnJ;
+                         double newCoef = coefPol1TermnJ * coefPol2TermnJ;
                          Termino newTermino = new Termino(newCoef, newExp);
 
                          newNodo = result.insertTermn(newTermino, last);

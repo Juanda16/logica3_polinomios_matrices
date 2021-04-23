@@ -58,6 +58,11 @@ public class MatrizEnListaLigadaForma1 {
         a.getT().setValue(b);
     }
 
+    
+    /** 
+     * @param a
+     * @return NodoDoble
+     */
     private NodoDoble getLigaNodoCabeza(NodoDoble a) {
         return (NodoDoble) a.getT().getValue();
     }
@@ -190,6 +195,10 @@ public class MatrizEnListaLigadaForma1 {
         }
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         StringBuilder cadena = new StringBuilder();
@@ -242,6 +251,10 @@ public class MatrizEnListaLigadaForma1 {
         return cadena.toString();
     }
 
+    
+    /** 
+     * @return MatrizEnListaLigadaForma1
+     */
     public MatrizEnListaLigadaForma1 obtenerIdentidad() {
         Tripleta configuracion = nodoCabezaMatriz.getT();
         int filas = configuracion.getRow();
@@ -250,6 +263,12 @@ public class MatrizEnListaLigadaForma1 {
         return mI;
     }
 
+    
+    /** 
+     * @param f
+     * @param c
+     * @return MatrizEnListaLigadaForma1
+     */
     public static MatrizEnListaLigadaForma1 crearIdentidad(int f, int c) {
         Tripleta tripletaConfiguracion = new Tripleta(f, c, f);
         NodoDoble nc;
@@ -283,6 +302,10 @@ public class MatrizEnListaLigadaForma1 {
         return mI;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getRowilas() {
         return nodoCabezaMatriz.getT().getRow();
     }
@@ -330,10 +353,19 @@ public class MatrizEnListaLigadaForma1 {
 
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getColumnas() {
         return nodoCabezaMatriz.getT().getColumn();
     }
 
+    
+    /** 
+     * @param nCDeRecorrido
+     * @return NodoDoble
+     */
     public static NodoDoble getCopiaListaFila(NodoDoble nCDeRecorrido) {
 
         NodoDoble copiaFila = new NodoDoble(nCDeRecorrido.getT().clonar());
@@ -352,6 +384,11 @@ public class MatrizEnListaLigadaForma1 {
         return copiaFila;
     }
 
+    
+    /** 
+     * @param x
+     * @param nCDeRecorrido
+     */
     public static void multiplicarFila(int x, NodoDoble nCDeRecorrido) {
         NodoDoble nodoRecorrido = nCDeRecorrido.getLigaF();
         NodoDoble cabezaRecorrido = (NodoDoble) nCDeRecorrido;
@@ -363,6 +400,10 @@ public class MatrizEnListaLigadaForma1 {
         }
     }
 
+    
+    /** 
+     * @return MatrizEnListaLigadaForma1
+     */
     public static MatrizEnListaLigadaForma1 entregarMatrizRelacion() {
 
         String[] filas = Matriz.MATRIZTEXTO.split("\n");
@@ -398,6 +439,11 @@ public class MatrizEnListaLigadaForma1 {
         return matrizEnListaLigadaForma1;
     }
 
+    
+    /** 
+     * @param i
+     * @return NodoDoble
+     */
     public NodoDoble getRowila(int i) {
         // Obtengo un nodo cabeza para recorrer la lista de nodos cabeza
 

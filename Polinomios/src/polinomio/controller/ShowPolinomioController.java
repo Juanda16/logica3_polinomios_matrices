@@ -11,9 +11,14 @@ public class ShowPolinomioController {
 
     }
 
+    
+    /** 
+     * @param select
+     */
     public static void options(char select) {
         switch (select) {
         case '0':
+
             ShowPolinomioView.printPolinomios(Polinomios.polinomios.toString());
             
             break;
@@ -21,7 +26,7 @@ public class ShowPolinomioController {
             break;
         default:
             int id = Character.getNumericValue(select);
-            ShowPolinomioView.printPolinomios(Polinomios.polinomios.get(id).toString());
+            ShowPolinomioView.printPolinomios(Polinomios.polinomios.get(id-1).toString());
             break;
         }
     }

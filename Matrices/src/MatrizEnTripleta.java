@@ -15,6 +15,12 @@ public class MatrizEnTripleta {
         tripletas[0] = tripletaConfig;
     }
 
+    
+    /** 
+     * @param row
+     * @param column
+     * @param data
+     */
     public void setElement(int row, int column, double data) {
         int p = 0;
         Tripleta tripletaConfig = tripletas[0];
@@ -74,6 +80,10 @@ public class MatrizEnTripleta {
         }
     }
 
+    
+    /** 
+     * @return String
+     */
     /*
      * void addTripleta (int possition){ int i Tripleta newElement = new
      * Tripleta(row, column, data); Tripleta[] newTripletas = new Tripleta[elements
