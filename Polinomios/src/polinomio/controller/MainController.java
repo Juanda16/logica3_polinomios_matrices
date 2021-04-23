@@ -15,7 +15,7 @@ public class MainController {
             break;
         case '4':DividePolinomioController.index();
             break;
-        case '5':EvalPoliniomioController.index();
+        case '5':EvalPolinomioController.index();
             break;
         case '.':
             break;
