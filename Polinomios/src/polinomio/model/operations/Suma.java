@@ -43,7 +43,7 @@ public class Suma {
                     recorrido2.getTermino().getExp())));   
                     ultimo3 = ultimo3.getLiga(); 
                 }
-                // por qué de esta forma se avanza en el polinomio??
+              
                 recorrido1 = recorrido1.getLiga();
                 recorrido2 = recorrido2.getLiga();
             }
