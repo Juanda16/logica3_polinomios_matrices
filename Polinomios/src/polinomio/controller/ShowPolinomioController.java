@@ -1,8 +1,4 @@
 package controller;
-
-import javax.lang.model.element.Element;
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import model.Polinomios;
 
 import view.ShowPolinomioView;

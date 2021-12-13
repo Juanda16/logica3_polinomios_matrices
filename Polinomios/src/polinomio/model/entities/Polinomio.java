@@ -26,8 +26,7 @@ public class Polinomio {
         return cabeza;
     }
 
-    
-    /** 
+    /**
      * @return int
      * @throws Exception
      */
@@ -40,8 +39,7 @@ public class Polinomio {
         return primero.getTermino().getExp();
     }
 
-    
-    /** 
+    /**
      * @param exponente
      * @return double
      */
@@ -60,8 +58,7 @@ public class Polinomio {
         return coeficiente;
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     // retorna el número de terminos del polinomio
@@ -79,8 +76,7 @@ public class Polinomio {
         return size;
     }
 
-    
-    /** 
+    /**
      * @param liga
      * @return boolean
      */
@@ -88,8 +84,7 @@ public class Polinomio {
         return liga == null;
     }
 
-    
-    /** 
+    /**
      * @param termn
      * @param last
      * @return Nodo
@@ -101,8 +96,7 @@ public class Polinomio {
 
     }
 
-    
-    /** 
+    /**
      * @param coef
      * @param exp
      */
@@ -113,7 +107,6 @@ public class Polinomio {
         Nodo cA = this.getCabeza();
         cA.setLiga(nodo);
         cA = nodo;
-
 
         // hacer esto para insertar x cantidad de términos
         // for(){
@@ -176,8 +169,7 @@ public class Polinomio {
         }
     }
 
-    
-    /** 
+    /**
      * @param index
      * @return Termino
      */
@@ -195,8 +187,7 @@ public class Polinomio {
             return null;
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     @Override
@@ -218,5 +209,35 @@ public class Polinomio {
         return polinomio.toString();
     }
 
-}
+    public boolean equals(Polinomio polinomio) throws Exception {
+        boolean equals = false;
+        this.simplify();
+        this.sort();
+        polinomio.simplify();
+        polinomio.sort();
+        if (this.getSize() == polinomio.getSize() && this != null && polinomio != null) {
+            if (this.getGrado() == polinomio.getGrado()) {
 
+                int size = this.getSize();
+                Nodo nodoRecord1 = this.getCabeza().getLiga();
+                Nodo nodoRecord2 = polinomio.getCabeza().getLiga();
+
+                for (int i = 0; i < size; i++) {
+
+                    if (nodoRecord1.getTermino().getCoef() == nodoRecord2.getTermino().getCoef()) {
+                        equals = true;
+                    } else {
+                        equals = false;
+                        break;
+                    }
+
+                    nodoRecord1 = nodoRecord1.getLiga();
+                    nodoRecord2 = nodoRecord2.getLiga();
+                }
+
+            }
+
+        }
+        return equals;
+    }
+}
