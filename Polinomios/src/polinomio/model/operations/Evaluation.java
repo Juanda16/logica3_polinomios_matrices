@@ -14,7 +14,7 @@ public class Evaluation {
           int Size = polinomio.getSize();
 
           try {
-               for (int i = 0; i < Size; i++) {
+               for (int i = 0; i <= Size; i++) {
                     double a = x;
                     double b = i;
                     double factor = Math.pow(a, b);
