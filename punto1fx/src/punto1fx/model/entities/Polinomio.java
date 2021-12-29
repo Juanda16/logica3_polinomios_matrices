@@ -203,7 +203,7 @@ public class Polinomio {
             if (coef >= 0) {
                 polinomio.append("+");
             }
-            polinomio.append(coef).append("X^").append(exp).append(" ");
+            polinomio.append(coef).append("x^").append(exp).append(" ");
             liga = liga.getLiga();
         }
         return polinomio.toString();

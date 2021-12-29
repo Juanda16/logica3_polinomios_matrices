@@ -14,8 +14,7 @@ insertTermnByInt(Double coef, int exp)  ok
 1x^1 + 2
 2x^2-15x^1+25
 1x^1 - 5
-*/
-
+ */
 public class StringToPolinomio {
 
     /**
@@ -24,22 +23,22 @@ public class StringToPolinomio {
      */
     public static Polinomio stringToPolinomio(String rawPolinomio) {
         Polinomio polinomio = new Polinomio();
-        System.out.print(rawPolinomio);
+        //System.out.println(rawPolinomio);
         try {
             rawPolinomio = rawPolinomio.replaceAll(" ", "");
             // System.out.println(rawPolinomio);
             String parts[] = rawPolinomio.split("(?=\\+)|(?=-)");
- System.out.print(parts[0] + parts[1]);
+
             double coef = 0;
             int exp = 0;
-            String term[] = { "0", "0", "0" };
+            String term[] = {"0", "0", "0"};
             Termino termino1 = new Termino(coef, exp);
             Nodo nodo1 = new Nodo(termino1);
             Nodo nodoRecu = polinomio.getCabeza();
             for (int i = 0; i < parts.length; i++) {
                 term = parts[i].split("(?=\\+)|(?=-)|x\\^");
                 if (term.length == 1) {
-                    coef =Double.parseDouble(term[0]);
+                    coef = Double.parseDouble(term[0]);
                     exp = 0;
                     // System.out.println(parts[i]);
 
@@ -49,8 +48,8 @@ public class StringToPolinomio {
                     exp = Integer.parseInt(term[1]);
                 }
                 /* * Se */
-                /*
-                */
+ /*
+                 */
                 termino1 = new Termino(coef, exp);
                 nodo1 = new Nodo(termino1);
                 nodoRecu.setLiga(nodo1);
@@ -58,7 +57,6 @@ public class StringToPolinomio {
 
                 // System.out.println(termino1.getCoef());
                 // System.out.println(termino1.getExp());
-
             }
             polinomio.simplify();
             polinomio.sort();
@@ -76,5 +74,4 @@ public class StringToPolinomio {
      * 
      * @see java.lang.Object#toString()
      */
-
 }
