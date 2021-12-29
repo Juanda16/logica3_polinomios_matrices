@@ -24,11 +24,12 @@ public class StringToPolinomio {
      */
     public static Polinomio stringToPolinomio(String rawPolinomio) {
         Polinomio polinomio = new Polinomio();
+        System.out.print(rawPolinomio);
         try {
             rawPolinomio = rawPolinomio.replaceAll(" ", "");
             // System.out.println(rawPolinomio);
             String parts[] = rawPolinomio.split("(?=\\+)|(?=-)");
-
+ System.out.print(parts[0] + parts[1]);
             double coef = 0;
             int exp = 0;
             String term[] = { "0", "0", "0" };
@@ -38,13 +39,13 @@ public class StringToPolinomio {
             for (int i = 0; i < parts.length; i++) {
                 term = parts[i].split("(?=\\+)|(?=-)|x\\^");
                 if (term.length == 1) {
-                    coef = Integer.parseInt(term[0]);
+                    coef =Double.parseDouble(term[0]);
                     exp = 0;
                     // System.out.println(parts[i]);
 
                 } else {
                     // System.out.println(parts[i]);
-                    coef = Integer.parseInt(term[0]);
+                    coef = Double.parseDouble(term[0]);
                     exp = Integer.parseInt(term[1]);
                 }
                 /* * Se */

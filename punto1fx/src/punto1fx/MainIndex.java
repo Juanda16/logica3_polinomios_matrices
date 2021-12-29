@@ -57,7 +57,6 @@ public class MainIndex extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         inputTerminoTextField = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
@@ -189,14 +188,7 @@ public class MainIndex extends javax.swing.JFrame {
             }
         });
 
-        jButton14.setText("Exp");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-
-        jButton15.setText("X");
+        jButton15.setText("X^");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
@@ -257,6 +249,9 @@ public class MainIndex extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(405, 405, 405)
+                                        .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jButton7)
@@ -281,14 +276,10 @@ public class MainIndex extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton6)))
-                                        .addGap(29, 29, 29)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(405, 405, 405)
-                                        .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                                                .addComponent(jButton6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -334,7 +325,6 @@ public class MainIndex extends javax.swing.JFrame {
                     .addComponent(jButton7)
                     .addComponent(jButton8)
                     .addComponent(jButton9)
-                    .addComponent(jButton14)
                     .addComponent(jButton10)
                     .addComponent(jButton11)
                     .addComponent(jButton12))
@@ -348,15 +338,15 @@ public class MainIndex extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         String rawPolinomio = inputPolinomioTextField.getText();
-        
+
         if (NewPolinomioController.store(rawPolinomio)) {
             addPolinomio(rawPolinomio);
             resultLabel.setText(rawPolinomio);
-            
+
             inputPolinomioTextField.setText("");
-            
+
         } else {
-            
+
             resultLabel.setText("No se pudo guardar");
             resultLabel.setForeground(Color.red);
         }
@@ -377,14 +367,19 @@ public class MainIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_polinomiosListAncestorAdded
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO check if its a valid format 
 
-        if (isValidFormat()) {
-            
-            addTerminoToPolLable();
+        if (inputPolinomioTextField.getText().equals("")) {
+            inputPolinomioTextField.setText(inputTerminoTextField.getText());
             inputTerminoTextField.setText("");
-            //add termino to the polinomio
 
+        } else {
+            if (isValidFormat()) {
+
+                addTerminoToPolLable();
+                inputTerminoTextField.setText("");
+                //add termino to the polinomio
+
+            }
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -418,14 +413,9 @@ public class MainIndex extends javax.swing.JFrame {
         inputTerminoTextField.setText(tempText + "5");
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        String tempText = inputTerminoTextField.getText();
-        inputTerminoTextField.setText(tempText + "^");
-    }//GEN-LAST:event_jButton14ActionPerformed
-
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         String tempText = inputTerminoTextField.getText();
-        inputTerminoTextField.setText(tempText + "x");
+        inputTerminoTextField.setText(tempText + "x^");
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -495,51 +485,52 @@ public class MainIndex extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public DefaultListModel cleanPolList() {
-        
+
         DefaultListModel model = new DefaultListModel();
-        
+
         polinomiosList.setModel(model);
-        
+
         return model;
     }
-    
+
     public DefaultListModel addPolinomio(String rawPolinomio) {
-        
+
         DefaultListModel model = (DefaultListModel) polinomiosList.getModel();
         model.addElement(rawPolinomio);
         polinomiosList.setModel(model);
-        
+
         return model;
     }
-    
+
     public DefaultListModel deletePolinomio() {
-        
+
         DefaultListModel model = (DefaultListModel) polinomiosList.getModel();
         model.remove(polinomiosList.getSelectedIndex());
-        
+
         return model;
     }
-    
+
     public boolean isValidFormat() {
         //TODO handle the validation method 
         return true;
     }
-    
+
     public void addTerminoToPolLable() {
         String tempString = inputTerminoTextField.getText();
+         String tempString2 = inputPolinomioTextField.getText();
         Polinomio tempPolinomio1 = new Polinomio();
         Polinomio tempPolinomio2 = new Polinomio();
         if (isValidFormat()) {
             tempPolinomio1 = StringToPolinomio.stringToPolinomio(tempString);
-            tempPolinomio2 = StringToPolinomio.stringToPolinomio(inputPolinomioTextField.getText());
+            tempPolinomio2 = StringToPolinomio.stringToPolinomio(tempString2);
         }
-        
+
         Polinomio resultPolinomio = Suma.sumar(tempPolinomio1, tempPolinomio2);
-        
+
         inputPolinomioTextField.setText(resultPolinomio.toString());
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField inputPolinomioTextField;
@@ -549,7 +540,6 @@ public class MainIndex extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
