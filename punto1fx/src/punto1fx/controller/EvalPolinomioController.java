@@ -16,18 +16,19 @@ public class EvalPolinomioController {
     /** 
      * @param selectedPol
      * @param nEval
+     * @return 
      */
-    public static void Eval(int selectedPol, int nEval) {
-
+    public static String Eval(int selectedPol, int nEval) {
+        String result="no result";
         if (selectedPol != 0 ) {
             //Evaluation evaluation = new Evaluation();
-            double result;// en mi caso el retorno de la división no es string
+            
             Polinomio pol1 = Polinomios.polinomios.get(selectedPol-1);
-            result = Evaluation.evalPol(pol1, nEval);
-            EvalPolinomioView.result(result);
+            result =String.valueOf(Evaluation.evalPol(pol1, nEval));
+            
         }
 
-        
+        return result;
 
     }
 }

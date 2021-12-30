@@ -4,8 +4,12 @@
  */
 package punto1fx;
 
+import controller.AddPolinomioController;
+import controller.EvalPolinomioController;
+import controller.MultiplyPolinomioController;
 import controller.NewPolinomioController;
 import java.awt.Color;
+import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import model.entities.Polinomio;
 import model.operations.Suma;
@@ -23,6 +27,7 @@ public class MainIndex extends javax.swing.JFrame {
     public MainIndex() {
         initComponents();
         cleanPolList();
+        evalTextField.setEnabled(false);
     }
 
     /**
@@ -34,6 +39,7 @@ public class MainIndex extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMenu1 = new java.awt.PopupMenu();
         jLabel1 = new javax.swing.JLabel();
         inputPolinomioTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +66,9 @@ public class MainIndex extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         inputTerminoTextField = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
+        evalTextField = new javax.swing.JTextField();
+
+        popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +104,17 @@ public class MainIndex extends javax.swing.JFrame {
 
         jLabel4.setText("Resultado");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Multiplicación", "División", "Evaluación" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Multiplicación", "Evaluación" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -195,10 +214,17 @@ public class MainIndex extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setText("Go");
+        jButton16.setText("Operar");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
+            }
+        });
+
+        evalTextField.setText("#");
+        evalTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evalTextFieldActionPerformed(evt);
             }
         });
 
@@ -207,7 +233,7 @@ public class MainIndex extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(saveButton)
@@ -219,23 +245,25 @@ public class MainIndex extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel4))
-                                    .addComponent(inputPolinomioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel4)
                                 .addGap(142, 142, 142))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGap(85, 85, 85))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(inputPolinomioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(evalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton16)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jScrollPane1)
                                 .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(26, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -292,7 +320,8 @@ public class MainIndex extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputPolinomioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(evalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -448,8 +477,50 @@ public class MainIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
+
+        int selectedList[];
+        selectedList = polinomiosList.getSelectedIndices();
+        String result = "no result";
+        System.out.println(jComboBox1.getSelectedIndex());
+        System.out.println(Arrays.toString(polinomiosList.getSelectedIndices()));
+
+        switch (jComboBox1.getSelectedIndex()) {
+            case 0:
+                result = AddPolinomioController.add2Pol(selectedList);
+                break;
+            case 1:
+                result = MultiplyPolinomioController.multiply(selectedList);
+                break;
+            case 2:
+                result = EvalPolinomioController.Eval(selectedList[0], 2);
+
+                break;
+
+            default:
+                break;
+        }
+        resultLabel.setText(result);
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        System.out.println(evt.getItem().toString());
+        if (evt.getItem().equals("Evaluación"))
+            evalTextField.setEnabled(true); 
+        else
+            evalTextField.setEnabled(false);
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void evalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evalTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_evalTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,7 +590,7 @@ public class MainIndex extends javax.swing.JFrame {
 
     public void addTerminoToPolLable() {
         String tempString = inputTerminoTextField.getText();
-         String tempString2 = inputPolinomioTextField.getText();
+        String tempString2 = inputPolinomioTextField.getText();
         Polinomio tempPolinomio1 = new Polinomio();
         Polinomio tempPolinomio2 = new Polinomio();
         if (isValidFormat()) {
@@ -533,6 +604,7 @@ public class MainIndex extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField evalTextField;
     private javax.swing.JTextField inputPolinomioTextField;
     private javax.swing.JTextField inputTerminoTextField;
     private javax.swing.JButton jButton1;
@@ -557,6 +629,7 @@ public class MainIndex extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> polinomiosList;
+    private java.awt.PopupMenu popupMenu1;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
