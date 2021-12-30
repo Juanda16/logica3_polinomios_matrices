@@ -1,12 +1,12 @@
 package controller;
 
-import model.operations.Multiplication;
+import model.operations.Suma;
 import view.MultiplyPolinomioView;
 import model.Polinomios;
-import model.entities.Polinomio;
+import model.entities.*;
 
 
-public class MultiplyPolinomioController {
+public class AddPolinomioController {
 
     public static void index() {
         
@@ -19,21 +19,25 @@ public class MultiplyPolinomioController {
      * @param selectedPols
      * @return 
      */
-    public static String multiply(int[] selectedPols) {
-        String result="no result";
+    public static String add2Pol(int[] selectedPols) {
+        String result ="no result";
         System.out.println(Polinomios.polinomios.get(selectedPols[0]).toString());
         System.out.println(Polinomios.polinomios.get(selectedPols[1]).toString());
         
-        if (selectedPols.length!= 0) {
-            //Multiplication multiplication = new Multiplication();
+        if (selectedPols.length!= 0){ 
+             //System.out.println("entré");
+//Multiplication multiplication = new Multiplication();
             
             Polinomio pol1 = Polinomios.polinomios.get(selectedPols[0]);
             Polinomio pol2 = Polinomios.polinomios.get(selectedPols[1]);
-            result = Multiplication.multiply2Poly(pol1, pol2).toString();
-            //MultiplyPolinomioView.result(result);
+            result = Suma.sumar(pol1, pol2).toString();
         }
+       
         System.out.println(result);
+        
         return result;
+
+        
 
     }
 }

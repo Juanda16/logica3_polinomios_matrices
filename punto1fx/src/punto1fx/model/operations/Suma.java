@@ -77,7 +77,8 @@ public class Suma {
             ultimo3 = ultimo3.getLiga();
             recorrido2 = recorrido2.getLiga();
         }
-
+        pol3.simplify();
+        pol3.sort();
         return pol3;
     }
 }
