@@ -9,7 +9,11 @@ import controller.EvalPolinomioController;
 import controller.MultiplyPolinomioController;
 import controller.NewPolinomioController;
 import java.awt.Color;
+
 import java.util.Arrays;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import model.entities.Polinomio;
 import model.operations.Suma;
@@ -444,19 +448,23 @@ public class MainIndex extends javax.swing.JFrame {
     }//GEN-LAST:event_polinomiosListAncestorAdded
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        String tempTermino = inputTerminoTextField.getText();
+        if (!isValidFormat(tempTermino)) {
+            resultLabel.setText("Término inválido");
+            resultLabel.setForeground(Color.red);
+            return;
+        }
 
         if (inputPolinomioTextField.getText().equals("")) {
-            inputPolinomioTextField.setText(inputTerminoTextField.getText());
+
+            inputPolinomioTextField.setText(tempTermino);
             inputTerminoTextField.setText("");
 
         } else {
-            if (isValidFormat()) {
+            addTerminoToPolLable();
+            inputTerminoTextField.setText("");
+           
 
-                addTerminoToPolLable();
-                inputTerminoTextField.setText("");
-                //add termino to the polinomio
-
-            }
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -646,9 +654,14 @@ public class MainIndex extends javax.swing.JFrame {
         return model;
     }
 
-    public boolean isValidFormat() {
-        //TODO handle the validation method 
-        return true;
+    public boolean isValidFormat(final String input) {
+       
+        System.out.println(input);
+        final Pattern pattern = Pattern.compile("[+-]?[0-9]+x?\\^?[0-9]?+", Pattern.CASE_INSENSITIVE);
+        
+        final Matcher matcher = pattern.matcher(input);
+        
+        return matcher.matches();
     }
 
     public void addTerminoToPolLable() {
@@ -656,7 +669,7 @@ public class MainIndex extends javax.swing.JFrame {
         String tempString2 = inputPolinomioTextField.getText();
         Polinomio tempPolinomio1 = new Polinomio();
         Polinomio tempPolinomio2 = new Polinomio();
-        if (isValidFormat()) {
+        if (isValidFormat(tempString)) {
             tempPolinomio1 = StringToPolinomio.stringToPolinomio(tempString);
             tempPolinomio2 = StringToPolinomio.stringToPolinomio(tempString2);
         }
